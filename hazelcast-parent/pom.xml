@@ -64,7 +64,7 @@
     </licenses>
 
     <properties>
-        <jdk.version>17</jdk.version>
+        <jdk.version>25</jdk.version>
         <hazelcast.module.name>com.hazelcast.core</hazelcast.module.name>
         <relocation.root>com.hazelcast.shaded</relocation.root>
         <relocation.dir>com/hazelcast/shaded</relocation.dir>
@@ -516,9 +516,9 @@
                 <classifier>jdk8</classifier>
             </dependency>
             <dependency>
-                <groupId>org.checkerframework</groupId>
+                <groupId>io.github.eisop</groupId>
                 <artifactId>checker-qual</artifactId>
-                <version>3.52.1</version>
+                <version>3.49.5-eisop1-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>org.antlr</groupId>
@@ -778,7 +778,29 @@
                         <compilerArgs>
                             <arg>-Xlint:-deprecation,-removal</arg>
                             <arg>${maven.compiler.procfull}</arg>
+
+                            <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
+                            <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
+                            <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
+                            <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
+                            <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
+                            <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
+                            <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
+                            <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+                            <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
+                            <arg>-J-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000</arg>
                         </compilerArgs>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>io.github.eisop</groupId>
+                                <artifactId>checker</artifactId>
+                                <version>3.49.5-eisop1-SNAPSHOT</version>
+                            </path>
+                        </annotationProcessorPaths>
+                        <annotationProcessors>
+                            <annotationProcessor>org.checkerframework.common.value.ValueChecker</annotationProcessor>
+                            <annotationProcessor>org.checkerframework.common.reflection.ClassValChecker</annotationProcessor>
+                        </annotationProcessors>
                     </configuration>
                 </plugin>
                 <plugin>
