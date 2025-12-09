@@ -81,4 +81,20 @@ public final class ReflectionUtil {
                     String.format("Unable to find a VarHandle for %s of type %s", fieldName, fieldType.getName()), e);
         }
     }
+    /**
+     * Wrapper for {@link MethodHandles.Lookup#findVarHandle(Class, String, Class)} to allow easier usage when assigning to
+     * {code static} fields:
+     * <ul>
+     * <li>Throws unchecked exceptions
+     * </ul>
+     */
+    public static VarHandle findVarHandle(Class<?> caller, String fieldName, Class<?> fieldType) {
+        try {
+            Lookup l = MethodHandles.privateLookupIn(caller, LOOKUP);
+            return l.findVarHandle(caller, fieldName, fieldType);
+        } catch (ReflectiveOperationException e) {
+            throw new RuntimeException(
+                    String.format("Unable to find a VarHandle for %s of type %s", fieldName, fieldType.getName()), e);
+        }
+    }
 }

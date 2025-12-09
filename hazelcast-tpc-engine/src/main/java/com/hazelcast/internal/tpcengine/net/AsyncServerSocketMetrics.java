@@ -17,6 +17,7 @@
 package com.hazelcast.internal.tpcengine.net;
 
 import com.hazelcast.internal.tpcengine.util.ReflectionUtil;
+import org.checkerframework.checker.handles.qual.Accessor;
 
 import java.lang.invoke.VarHandle;
 
@@ -26,7 +27,9 @@ import java.lang.invoke.VarHandle;
 @SuppressWarnings("checkstyle:ConstantName")
 public class AsyncServerSocketMetrics {
 
-    private static final VarHandle ACCEPTED = ReflectionUtil.findVarHandle("accepted", long.class);
+    private static final @Accessor("(AsyncServerSocketMetrics;long)") VarHandle ACCEPTED
+        = (@Accessor("(AsyncServerSocketMetrics;long)") VarHandle)
+        ReflectionUtil.findVarHandle(AsyncServerSocketMetrics.class, "accepted", long.class);
 
     private volatile long accepted;
 

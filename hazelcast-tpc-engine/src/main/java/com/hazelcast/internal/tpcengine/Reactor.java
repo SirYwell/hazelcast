@@ -28,6 +28,7 @@ import com.hazelcast.internal.tpcengine.util.CircularQueue;
 import com.hazelcast.internal.tpcengine.util.ReflectionUtil;
 import com.hazelcast.internal.util.ThreadAffinity;
 import com.hazelcast.internal.util.ThreadAffinityHelper;
+import org.checkerframework.checker.handles.qual.Accessor;
 import org.jctools.queues.MpmcArrayQueue;
 
 import java.lang.invoke.VarHandle;
@@ -68,7 +69,8 @@ import static com.hazelcast.internal.tpcengine.Reactor.State.TERMINATED;
 @SuppressWarnings({"checkstyle:DeclarationOrder", "checkstyle:VisibilityModifier", "rawtypes"})
 public abstract class Reactor implements Executor {
 
-    private static final VarHandle STATE = ReflectionUtil.findVarHandle("state", State.class);
+    private static final @Accessor("(Reactor;State)") VarHandle STATE
+        = (@Accessor("(Reactor;State)") VarHandle) ReflectionUtil.findVarHandle(Reactor.class, "state", State.class);
 
     protected final ConcurrentMap<?, ?> context = new ConcurrentHashMap<>();
     protected final TpcLogger logger = TpcLoggerLocator.getLogger(getClass());

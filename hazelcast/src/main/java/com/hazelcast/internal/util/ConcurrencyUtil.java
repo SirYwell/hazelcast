@@ -16,6 +16,8 @@
 
 package com.hazelcast.internal.util;
 
+import org.checkerframework.checker.handles.qual.Accessor;
+
 import java.lang.invoke.VarHandle;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -85,7 +87,7 @@ public final class ConcurrencyUtil {
      * If the current value is larger than the provided value, the call is ignored.
      * So it will not happen that a smaller value will overwrite a larger value.
      */
-    public static <E> void setMax(E obj, VarHandle handle, long value) {
+    public static <E> void setMax(E obj, @Accessor("~(Object;long)") VarHandle handle, long value) {
         for (; ; ) {
             long current = (long) handle.get(obj);
             if (current >= value) {

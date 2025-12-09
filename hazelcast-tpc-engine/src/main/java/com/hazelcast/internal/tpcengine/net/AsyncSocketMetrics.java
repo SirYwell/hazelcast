@@ -18,6 +18,7 @@ package com.hazelcast.internal.tpcengine.net;
 
 import com.hazelcast.internal.tpcengine.Reactor;
 import com.hazelcast.internal.tpcengine.util.ReflectionUtil;
+import org.checkerframework.checker.handles.qual.Accessor;
 
 import java.lang.invoke.VarHandle;
 
@@ -27,10 +28,18 @@ import java.lang.invoke.VarHandle;
 @SuppressWarnings("checkstyle:ConstantName")
 public class AsyncSocketMetrics {
 
-    private static final VarHandle BYTES_READ = ReflectionUtil.findVarHandle("bytesRead", long.class);
-    private static final VarHandle BYTES_WRITTEN = ReflectionUtil.findVarHandle("bytesWritten", long.class);
-    private static final VarHandle WRITE_EVENTS = ReflectionUtil.findVarHandle("writeEvents", long.class);
-    private static final VarHandle READ_EVENTS = ReflectionUtil.findVarHandle("readEvents", long.class);
+    private static final @Accessor("(AsyncSocketMetrics;long)") VarHandle BYTES_READ
+        = (@Accessor("(AsyncSocketMetrics;long)") VarHandle)
+        ReflectionUtil.findVarHandle(AsyncSocketMetrics.class, "bytesRead", long.class);
+    private static final @Accessor("(AsyncSocketMetrics;long)") VarHandle BYTES_WRITTEN
+        = (@Accessor("(AsyncSocketMetrics;long)") VarHandle)
+        ReflectionUtil.findVarHandle(AsyncSocketMetrics.class, "bytesWritten", long.class);
+    private static final @Accessor("(AsyncSocketMetrics;long)") VarHandle WRITE_EVENTS
+        = (@Accessor("(AsyncSocketMetrics;long)") VarHandle)
+        ReflectionUtil.findVarHandle(AsyncSocketMetrics.class, "writeEvents", long.class);
+    private static final @Accessor("(AsyncSocketMetrics;long)") VarHandle READ_EVENTS
+        = (@Accessor("(AsyncSocketMetrics;long)") VarHandle)
+        ReflectionUtil.findVarHandle(AsyncSocketMetrics.class, "readEvents", long.class);
 
     private volatile long bytesRead;
     private volatile long bytesWritten;
