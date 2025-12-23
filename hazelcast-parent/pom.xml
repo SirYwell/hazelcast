@@ -796,7 +796,7 @@
                             <arg>-J-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000</arg>
                         </compilerArgs>
                         <annotationProcessorPaths>
-<!--                            <path>
+                            <path>
                                 <groupId>io.github.eisop</groupId>
                                 <artifactId>checker</artifactId>
                                 <version>3.49.3-eisop1</version>
@@ -805,11 +805,10 @@
                                 <groupId>de.sirywell</groupId>
                                 <artifactId>handles-checker</artifactId>
                                 <version>0.1-SNAPSHOT</version>
-                            </path>-->
+                            </path>
                         </annotationProcessorPaths>
                         <annotationProcessors>
-                            <!-- Add all the checkers you want to enable here -->
-                            <!--<annotationProcessor>org.checkerframework.checker.handles.HandleChecker</annotationProcessor>-->
+                            <annotationProcessor>org.checkerframework.checker.handles.HandleChecker</annotationProcessor>
                         </annotationProcessors>
                     </configuration>
                 </plugin>
