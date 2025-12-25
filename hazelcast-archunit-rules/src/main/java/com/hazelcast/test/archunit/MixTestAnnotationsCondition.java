@@ -73,7 +73,7 @@ public class MixTestAnnotationsCondition extends ArchCondition<JavaClass> {
                 .flatMap(Collection::stream);
 
         return Stream.concat(classAnnotations, methodAnnotations)
-                .map(JavaAnnotation::getRawType);
+                .map(javaAnnotation -> javaAnnotation.getRawType());
     }
 
     /** @return a {@link Stream} of {@link Class}' containing methods called from {@code item} */
