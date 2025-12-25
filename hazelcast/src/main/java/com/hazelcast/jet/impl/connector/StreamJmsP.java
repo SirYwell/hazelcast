@@ -297,6 +297,7 @@ public class StreamJmsP<T> extends AbstractProcessor {
             }
         }
 
+        @SuppressWarnings("type.arguments.not.inferred")
         @Nonnull @Override
         public Collection<? extends Processor> get(int count) {
             return range(0, count)

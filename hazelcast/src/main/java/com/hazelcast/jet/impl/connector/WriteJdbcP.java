@@ -154,6 +154,7 @@ public final class WriteJdbcP<T> extends XaSinkProcessorBase {
                         }
                     }
 
+                    @SuppressWarnings("type.arguments.not.inferred")
                     @Nonnull
                     @Override
                     public Collection<? extends Processor> get(int count) {
@@ -390,6 +391,7 @@ public final class WriteJdbcP<T> extends XaSinkProcessorBase {
             }
         }
 
+        @SuppressWarnings("type.arguments.not.inferred")
         @Nonnull @Override
         public Collection<? extends Processor> get(int count) {
             return IntStream.range(0, count)

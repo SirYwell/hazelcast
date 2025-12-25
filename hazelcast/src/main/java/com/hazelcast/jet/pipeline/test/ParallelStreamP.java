@@ -80,6 +80,7 @@ public class ParallelStreamP<T> extends AbstractProcessor {
         this.generators = generators;
     }
 
+    @SuppressWarnings("type.arguments.not.inferred")
     @Override
     protected void init(@Nonnull Context context) {
         totalParallelism = context.totalParallelism();

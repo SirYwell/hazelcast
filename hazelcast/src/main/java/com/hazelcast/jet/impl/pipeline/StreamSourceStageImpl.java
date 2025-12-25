@@ -36,6 +36,7 @@ import static com.hazelcast.jet.impl.util.Util.checkSerializable;
 
 public class StreamSourceStageImpl<T> implements StreamSourceStage<T> {
 
+    @SuppressWarnings("type.argument.inference.crashed")
     private static final ObjLongBiFunction WRAP_TO_JET_EVENT = (item, ts) -> jetEvent(ts, item);
     private final StreamSourceTransform<T> transform;
     private final PipelineImpl pipeline;

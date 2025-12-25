@@ -120,6 +120,7 @@ public class BatchStageImpl<T> extends ComputeStageImplBase<T> implements BatchS
         return attachGlobalMapStateful(createFn, mapFn);
     }
 
+    @SuppressWarnings("lambda.param.type.incompatible")
     @Nonnull @Override
     public <S> BatchStage<T> filterStateful(
             @Nonnull SupplierEx<? extends S> createFn,

@@ -218,7 +218,7 @@ public class Planner {
         return fused;
     }
 
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings({"rawtypes", "return.type.incompatible"})
     private static FunctionEx mergeMapFunctions(List<Transform> chain) {
         if (chain.isEmpty()) {
             return null;

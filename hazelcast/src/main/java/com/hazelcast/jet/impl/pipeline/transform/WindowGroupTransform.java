@@ -54,7 +54,7 @@ public class WindowGroupTransform<K, R> extends AbstractTransform {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings({"rawtypes", "type.argument.inference.crashed"})
     private static final KeyedWindowResultFunction JET_EVENT_KEYED_WINDOW_RESULT_FN =
             (winStart, winEnd, key, windowResult, isEarly) ->
                     jetEvent(winEnd - 1, new KeyedWindowResult<>(winStart, winEnd, key, windowResult, isEarly));

@@ -16,6 +16,8 @@
 
 package com.hazelcast.internal.util;
 
+import org.checkerframework.common.value.qual.IntRange;
+
 import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -541,7 +543,7 @@ public final class AddressUtil {
 
         public abstract void setAddress(String[] ip);
 
-        protected final boolean match(final String[] mask, String[] input, int radix) {
+        protected final boolean match(final String[] mask, String[] input, @IntRange(from = 2, to = 16) int radix) {
             if (input != null && mask != null) {
                 for (int i = 0; i < mask.length; i++) {
                     if (!doMatch(mask[i], input[i], radix)) {
@@ -553,7 +555,7 @@ public final class AddressUtil {
             return false;
         }
 
-        protected final boolean doMatch(final String mask, String input, int radix) {
+        protected final boolean doMatch(final String mask, String input, @IntRange(from = 2, to = 16) int radix) {
             final int dashIndex = mask.indexOf('-');
             final int ipa = Integer.parseInt(input, radix);
             if ("*".equals(mask)) {

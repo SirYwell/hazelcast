@@ -55,7 +55,7 @@ public class WindowAggregateTransform<A, R> extends AbstractTransform {
 
     private static final int MAX_WATERMARK_STRIDE = 100;
     private static final int MIN_WMS_PER_SESSION = 100;
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings({"rawtypes", "type.argument.inference.crashed"})
     private static final KeyedWindowResultFunction JET_EVENT_WINDOW_RESULT_FN =
             (start, end, ignoredKey, result, isEarly) ->
                     jetEvent(end - 1, new WindowResult<>(start, end, result, isEarly));

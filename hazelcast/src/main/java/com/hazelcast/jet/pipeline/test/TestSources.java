@@ -51,6 +51,7 @@ public final class TestSources {
      *
      * @since Jet 3.2
      */
+    @SuppressWarnings("type.argument.inference.crashed")
     @Nonnull
     public static <T> BatchSource<T> items(@Nonnull Iterable<? extends T> items) {
         Objects.requireNonNull(items, "items");
@@ -80,6 +81,7 @@ public final class TestSources {
      *
      * @since Jet 4.4
      */
+    @SuppressWarnings("type.argument.inference.crashed")
     @Nonnull
     public static <T> BatchSource<T> itemsDistributed(@Nonnull Iterable<? extends T> items) {
         Objects.requireNonNull(items, "items");
@@ -150,6 +152,7 @@ public final class TestSources {
      *
      * @since Jet 3.2
      */
+    @SuppressWarnings("type.argument.inference.crashed")
     @EvolvingApi
     @Nonnull
     public static <T> StreamSource<T> itemStream(

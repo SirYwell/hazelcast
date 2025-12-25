@@ -160,16 +160,19 @@ public class ClientDelegatingFuture<V> extends DelegatingCompletableFuture<V> {
         return (ClientInvocationFuture) future;
     }
 
+    @SuppressWarnings("argument.type.incompatible")
     @Override
     public <U> CompletableFuture<U> thenApply(Function<? super V, ? extends U> fn) {
         return future.thenApplyAsync(new DeserializingFunction<>(fn), defaultExecutor());
     }
 
+    @SuppressWarnings("argument.type.incompatible")
     @Override
     public <U> CompletableFuture<U> thenApplyAsync(Function<? super V, ? extends U> fn) {
         return future.thenApplyAsync(new DeserializingFunction<>(fn), defaultExecutor());
     }
 
+    @SuppressWarnings("argument.type.incompatible")
     @Override
     public <U> CompletableFuture<U> thenApplyAsync(Function<? super V, ? extends U> fn, Executor executor) {
         return future.thenApplyAsync(new DeserializingFunction<>(fn), executor);

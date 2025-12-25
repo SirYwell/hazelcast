@@ -183,6 +183,7 @@ public class PartitionIdSet extends AbstractSet<Integer> implements IdentifiedDa
         }
     }
 
+    @SuppressWarnings("methodref.param.invalid")
     public void removeAll(PartitionIdSet other) {
         other.bitSet.stream().forEach(bitSet::clear);
         resetSize();

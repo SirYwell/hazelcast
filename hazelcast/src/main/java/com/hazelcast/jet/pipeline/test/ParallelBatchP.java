@@ -50,6 +50,7 @@ public class ParallelBatchP<T> extends AbstractProcessor {
         this.iterables = iterables;
     }
 
+    @SuppressWarnings("type.arguments.not.inferred")
     @Override
     protected void init(@Nonnull Context context) {
         int globalProcessorIndex = context.globalProcessorIndex();
