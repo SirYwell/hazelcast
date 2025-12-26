@@ -1583,6 +1583,7 @@ public class ClientMapProxy<K, V> extends ClientProxy
      * @param objectKeys not serialized key
      * @param dataKeys   serialized keys
      */
+    @SuppressWarnings("type.argument.inference.crashed")
     @Nonnull
     protected <R> InternalCompletableFuture<Map<K, R>> submitToKeysInternal(@Nonnull Set<K> objectKeys,
                                                                             @Nonnull Collection<Data> dataKeys,

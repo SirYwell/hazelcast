@@ -210,6 +210,7 @@ public class CacheEventListenerAdaptor<K, V>
                     oldValue = null;
                 }
             }
+            @SuppressWarnings("type.arguments.not.inferred")
             final CacheEntryEventImpl<K, V> event =
                     new CacheEntryEventImpl<>(source, eventType, key, newValue, oldValue);
             if (filter == null || filter.evaluate(event)) {

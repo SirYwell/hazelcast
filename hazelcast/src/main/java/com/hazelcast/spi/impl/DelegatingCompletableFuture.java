@@ -233,7 +233,8 @@ public class DelegatingCompletableFuture<V> extends InternalCompletableFuture<V>
 
     @Override
     public <U> CompletableFuture<U> thenApply(Function<? super V, ? extends U> fn) {
-        return future.thenApply(new DeserializingFunction<>(serializationService, fn));
+        CompletableFuture cf = future.thenApply(new DeserializingFunction<>(serializationService, fn));
+        return cf;
     }
 
     @Override

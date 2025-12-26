@@ -17,6 +17,7 @@
 package com.hazelcast.jet.impl;
 
 import com.hazelcast.cluster.Address;
+import com.hazelcast.cluster.Member;
 import com.hazelcast.core.HazelcastInstanceNotActiveException;
 import com.hazelcast.core.MemberLeftException;
 import com.hazelcast.instance.impl.HazelcastInstanceImpl;
@@ -126,7 +127,7 @@ public class JetInstanceImpl extends AbstractJetInstance<Address> {
                 },
                 memberMap -> memberMap.entrySet().stream()
                         .collect(toMap(
-                                        en -> en.getKey().getAddress(),
+                                        (Map.Entry<Member, Object> en) -> en.getKey().getAddress(),
                                         en -> (GetJobIdsResult) en.getValue()
                                 )
                         )

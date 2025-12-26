@@ -78,6 +78,7 @@ public class JetGetJobIdsMessageTask extends AbstractAsyncMessageTask<JetGetJobI
                 true
         ).setCallerUuid(endpoint.getUuid());
 
+        @SuppressWarnings("type.argument.inference.crashed")
         var allMembersFuture = InvocationUtil.invokeAndReduceOnAllClusterMembers(
                 nodeEngine,
                 operationSupplier,
