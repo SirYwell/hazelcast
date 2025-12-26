@@ -123,16 +123,13 @@ public abstract class GeneralHashJoinBuilder<T0> {
         // JoinClause's second param, T0, is the same for all clauses but only
         // before FunctionAdapter treatment. After that it may be T0 or JetEvent<T0>
         // so we are forced to generalize to just ?.
-        List<JoinClause> adaptedClauses = joinClauses
-                .map((JoinClause joinClause) -> fnAdapter.adaptJoinClause(joinClause))
-                .collect(toList());
         BiFunctionEx<?, ? super ItemsByTag, ?> adaptedOutputFn = fnAdapter.adaptHashJoinOutputFn(mapToOutputFn);
         // Here we break type safety and assume T0 as the type parameter even though
         // it may actually be JetEvent<T0>, but that difference is invisible at the
         // level of types used on pipeline stages.
         HashJoinTransform<T0, R> hashJoinTransform = new HashJoinTransform(
                 upstream.stream().map(AbstractStage::transformOf).collect(toList()),
-                adaptedClauses,
+                List.<JoinClause>of(),
                 orderedClauses.stream()
                               .map(Entry::getKey)
                               .collect(toList()),
