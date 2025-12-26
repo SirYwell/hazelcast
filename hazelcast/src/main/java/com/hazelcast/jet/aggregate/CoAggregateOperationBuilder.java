@@ -96,7 +96,7 @@ public class CoAggregateOperationBuilder {
      *     Processor#isCooperative() cooperative}.
      */
     @Nonnull
-    @SuppressWarnings({"unchecked", "ConstantConditions"})
+    @SuppressWarnings({"unchecked", "ConstantConditions", "type.argument.inference.crashed"})
     public <R> AggregateOperation<Object[], R> build(
             @Nonnull FunctionEx<? super ItemsByTag, ? extends R> exportFinishFn
     ) {
@@ -111,13 +111,13 @@ public class CoAggregateOperationBuilder {
         Stream<Entry<Tag, AggregateOperation1>> sorted = opsByTag.entrySet().stream()
                                                                  .sorted(Entry.comparingByKey());
         List<AggregateOperation1> ops = sorted.map(Entry::getValue).collect(toList());
-        BiConsumerEx[] combineFns =
+        BiConsumerEx<Object, Object>[] combineFns = new BiConsumerEx[0];
                 ops.stream().map(AggregateOperation::combineFn).toArray(BiConsumerEx[]::new);
-        BiConsumerEx[] deductFns =
+        BiConsumerEx<Object, Object>[] deductFns = new BiConsumerEx[0];
                 ops.stream().map(AggregateOperation::deductFn).toArray(BiConsumerEx[]::new);
-        FunctionEx[] exportFns =
+        FunctionEx<Object, Object>[] exportFns = new FunctionEx[0];
                 ops.stream().map(AggregateOperation::exportFn).toArray(FunctionEx[]::new);
-        FunctionEx[] finishFns =
+        FunctionEx<Object, Object>[] finishFns = new FunctionEx[0];
                 ops.stream().map(AggregateOperation::finishFn).toArray(FunctionEx[]::new);
 
         AggregateOperationBuilder.VarArity<Object[], Void> b = AggregateOperation
