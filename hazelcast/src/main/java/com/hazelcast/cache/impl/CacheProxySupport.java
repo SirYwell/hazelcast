@@ -570,7 +570,7 @@ abstract class CacheProxySupport<K, V>
         }
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "return.type.incompatible"})
     private <T extends EventListener> T initializeListener(ListenerConfig listenerConfig) {
         T listener = null;
         if (listenerConfig.getImplementation() != null) {
