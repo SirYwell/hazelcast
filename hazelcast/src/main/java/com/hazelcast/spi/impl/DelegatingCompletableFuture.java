@@ -233,194 +233,229 @@ public class DelegatingCompletableFuture<V> extends InternalCompletableFuture<V>
 
     @Override
     public <U> CompletableFuture<U> thenApply(Function<? super V, ? extends U> fn) {
-        CompletableFuture cf = future.thenApply(new DeserializingFunction<>(serializationService, fn));
-        return cf;
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenApply(new DeserializingFunction<>(serializationService, fn));
     }
 
     @Override
     public <U> CompletableFuture<U> thenApplyAsync(Function<? super V, ? extends U> fn) {
-        return future.thenApplyAsync(new DeserializingFunction<>(serializationService, fn));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenApplyAsync(new DeserializingFunction<>(serializationService, fn));
     }
 
     @Override
     public <U> CompletableFuture<U> thenApplyAsync(Function<? super V, ? extends U> fn, Executor executor) {
-        return future.thenApplyAsync(new DeserializingFunction<>(serializationService, fn), executor);
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenApplyAsync(new DeserializingFunction<>(serializationService, fn), executor);
     }
 
     @Override
     public CompletableFuture<Void> thenAccept(Consumer<? super V> action) {
-        return future.thenAccept(new DeserializingConsumer<>(serializationService, action));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenAccept(new DeserializingConsumer<>(serializationService, action));
     }
 
     @Override
     public CompletableFuture<Void> thenAcceptAsync(Consumer<? super V> action) {
-        return future.thenAcceptAsync(new DeserializingConsumer<>(serializationService, action));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenAcceptAsync(new DeserializingConsumer<>(serializationService, action));
     }
 
     @Override
     public CompletableFuture<Void> thenAcceptAsync(Consumer<? super V> action, Executor executor) {
-        return future.thenAcceptAsync(new DeserializingConsumer<>(serializationService, action), executor);
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenAcceptAsync(new DeserializingConsumer<>(serializationService, action), executor);
     }
 
     @Override
     public CompletableFuture<Void> thenRun(Runnable action) {
-        return future.thenRun(new DeserializingRunnable(serializationService, action));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenRun(new DeserializingRunnable(serializationService, action));
     }
 
     @Override
     public CompletableFuture<Void> thenRunAsync(Runnable action) {
-        return future.thenRunAsync(new DeserializingRunnable(serializationService, action));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenRunAsync(new DeserializingRunnable(serializationService, action));
     }
 
     @Override
     public CompletableFuture<Void> thenRunAsync(Runnable action, Executor executor) {
-        return future.thenRunAsync(new DeserializingRunnable(serializationService, action), executor);
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenRunAsync(new DeserializingRunnable(serializationService, action), executor);
     }
 
     @Override
     public <U, V1> CompletableFuture<V1> thenCombine(CompletionStage<? extends U> other,
                                                      BiFunction<? super V, ? super U, ? extends V1> fn) {
-        return future.thenCombine(other, new DeserializingBiFunction<>(serializationService, fn));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenCombine(other, new DeserializingBiFunction<>(serializationService, fn));
     }
 
     @Override
     public <U, V1> CompletableFuture<V1> thenCombineAsync(CompletionStage<? extends U> other,
                                                           BiFunction<? super V, ? super U, ? extends V1> fn) {
-        return future.thenCombineAsync(other, new DeserializingBiFunction<>(serializationService, fn));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenCombineAsync(other, new DeserializingBiFunction<>(serializationService, fn));
     }
 
     @Override
     public <U, V1> CompletableFuture<V1> thenCombineAsync(CompletionStage<? extends U> other,
                                                           BiFunction<? super V, ? super U, ? extends V1> fn, Executor executor) {
-        return future.thenCombineAsync(other, new DeserializingBiFunction<>(serializationService, fn), executor);
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenCombineAsync(other, new DeserializingBiFunction<>(serializationService, fn), executor);
     }
 
     @Override
     public <U> CompletableFuture<Void> thenAcceptBoth(CompletionStage<? extends U> other,
                                                       BiConsumer<? super V, ? super U> action) {
-        return future.thenAcceptBoth(other, new DeserializingBiConsumer<>(serializationService, action));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenAcceptBoth(other, new DeserializingBiConsumer<>(serializationService, action));
     }
 
     @Override
     public <U> CompletableFuture<Void> thenAcceptBothAsync(CompletionStage<? extends U> other,
                                                            BiConsumer<? super V, ? super U> action) {
-        return future.thenAcceptBothAsync(other, new DeserializingBiConsumer<>(serializationService, action));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenAcceptBothAsync(other, new DeserializingBiConsumer<>(serializationService, action));
     }
 
     @Override
     public <U> CompletableFuture<Void> thenAcceptBothAsync(CompletionStage<? extends U> other,
                                                            BiConsumer<? super V, ? super U> action, Executor executor) {
-        return future.thenAcceptBothAsync(other, new DeserializingBiConsumer<>(serializationService, action), executor);
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenAcceptBothAsync(other, new DeserializingBiConsumer<>(serializationService, action), executor);
     }
 
     @Override
     public CompletableFuture<Void> runAfterBoth(CompletionStage<?> other, Runnable action) {
-        return future.runAfterBoth(other, new DeserializingRunnable(serializationService, action));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.runAfterBoth(other, new DeserializingRunnable(serializationService, action));
     }
 
     @Override
     public CompletableFuture<Void> runAfterBothAsync(CompletionStage<?> other, Runnable action) {
-        return future.runAfterBothAsync(other, new DeserializingRunnable(serializationService, action));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.runAfterBothAsync(other, new DeserializingRunnable(serializationService, action));
     }
 
     @Override
     public CompletableFuture<Void> runAfterBothAsync(CompletionStage<?> other, Runnable action, Executor executor) {
-        return future.runAfterBothAsync(other, new DeserializingRunnable(serializationService, action), executor);
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.runAfterBothAsync(other, new DeserializingRunnable(serializationService, action), executor);
     }
 
     @Override
     public <U> CompletableFuture<U> applyToEither(CompletionStage<? extends V> other, Function<? super V, U> fn) {
-        return future.applyToEither(other, new DeserializingFunction<>(serializationService, fn));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.applyToEither(other, new DeserializingFunction<>(serializationService, fn));
     }
 
     @Override
     public <U> CompletableFuture<U> applyToEitherAsync(CompletionStage<? extends V> other, Function<? super V, U> fn) {
-        return future.applyToEitherAsync(other, new DeserializingFunction<>(serializationService, fn));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.applyToEitherAsync(other, new DeserializingFunction<>(serializationService, fn));
     }
 
     @Override
     public <U> CompletableFuture<U> applyToEitherAsync(CompletionStage<? extends V> other, Function<? super V, U> fn,
                                                        Executor executor) {
-        return future.applyToEitherAsync(other, new DeserializingFunction<>(serializationService, fn), executor);
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.applyToEitherAsync(other, new DeserializingFunction<>(serializationService, fn), executor);
     }
 
     @Override
     public CompletableFuture<Void> acceptEither(CompletionStage<? extends V> other, Consumer<? super V> action) {
-        return future.acceptEither(other, new DeserializingConsumer<>(serializationService, action));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.acceptEither(other, new DeserializingConsumer<>(serializationService, action));
     }
 
     @Override
     public CompletableFuture<Void> acceptEitherAsync(CompletionStage<? extends V> other, Consumer<? super V> action) {
-        return future.acceptEitherAsync(other, new DeserializingConsumer<>(serializationService, action));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.acceptEitherAsync(other, new DeserializingConsumer<>(serializationService, action));
     }
 
     @Override
     public CompletableFuture<Void> acceptEitherAsync(CompletionStage<? extends V> other, Consumer<? super V> action,
                                                      Executor executor) {
-        return future.acceptEitherAsync(other, new DeserializingConsumer<>(serializationService, action), executor);
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.acceptEitherAsync(other, new DeserializingConsumer<>(serializationService, action), executor);
     }
 
     @Override
     public CompletableFuture<Void> runAfterEither(CompletionStage<?> other, Runnable action) {
-        return future.runAfterEither(other, new DeserializingRunnable(serializationService, action));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.runAfterEither(other, new DeserializingRunnable(serializationService, action));
     }
 
     @Override
     public CompletableFuture<Void> runAfterEitherAsync(CompletionStage<?> other, Runnable action) {
-        return future.runAfterEitherAsync(other, new DeserializingRunnable(serializationService, action));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.runAfterEitherAsync(other, new DeserializingRunnable(serializationService, action));
     }
 
     @Override
     public CompletableFuture<Void> runAfterEitherAsync(CompletionStage<?> other, Runnable action, Executor executor) {
-        return future.runAfterEitherAsync(other, new DeserializingRunnable(serializationService, action), executor);
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.runAfterEitherAsync(other, new DeserializingRunnable(serializationService, action), executor);
     }
 
     @Override
     public <U> CompletableFuture<U> thenCompose(Function<? super V, ? extends CompletionStage<U>> fn) {
-        return future.thenCompose(new DeserializingFunction<>(serializationService, fn));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenCompose(new DeserializingFunction<>(serializationService, fn));
     }
 
     @Override
     public <U> CompletableFuture<U> thenComposeAsync(Function<? super V, ? extends CompletionStage<U>> fn) {
-        return future.thenComposeAsync(new DeserializingFunction<>(serializationService, fn));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenComposeAsync(new DeserializingFunction<>(serializationService, fn));
     }
 
     @Override
     public <U> CompletableFuture<U> thenComposeAsync(Function<? super V, ? extends CompletionStage<U>> fn, Executor executor) {
-        return future.thenComposeAsync(new DeserializingFunction<>(serializationService, fn), executor);
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.thenComposeAsync(new DeserializingFunction<>(serializationService, fn), executor);
     }
 
     @Override
     public CompletableFuture<V> whenComplete(BiConsumer<? super V, ? super Throwable> action) {
-        return new DelegatingCompletableFuture<>(serializationService,
-                future.whenComplete(new WhenCompleteBiConsumer(serializationService, action)));
+        throw new UnsupportedOperationException("checker-framework");
+        // return new DelegatingCompletableFuture<>(serializationService,
+        //        future.whenComplete(new WhenCompleteBiConsumer(serializationService, action)));
     }
 
     @Override
     public CompletableFuture<V> whenCompleteAsync(BiConsumer<? super V, ? super Throwable> action) {
-        return new DelegatingCompletableFuture<>(serializationService,
-                future.whenCompleteAsync(new WhenCompleteBiConsumer(serializationService, action)));
+        throw new UnsupportedOperationException("checker-framework");
+        // return new DelegatingCompletableFuture<>(serializationService,
+        //        future.whenCompleteAsync(new WhenCompleteBiConsumer(serializationService, action)));
     }
 
     @Override
     public CompletableFuture<V> whenCompleteAsync(BiConsumer<? super V, ? super Throwable> action, Executor executor) {
-        return new DelegatingCompletableFuture<>(serializationService,
-                future.whenCompleteAsync(new WhenCompleteBiConsumer(serializationService, action), executor));
+        throw new UnsupportedOperationException("checker-framework");
+        // return new DelegatingCompletableFuture<>(serializationService,
+        //        future.whenCompleteAsync(new WhenCompleteBiConsumer(serializationService, action), executor));
     }
 
     @Override
     public <U> CompletableFuture<U> handle(BiFunction<? super V, Throwable, ? extends U> fn) {
-        return future.handle(new HandleBiFunction(serializationService, fn));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.handle(new HandleBiFunction(serializationService, fn));
     }
 
     @Override
     public <U> CompletableFuture<U> handleAsync(BiFunction<? super V, Throwable, ? extends U> fn) {
-        return future.handleAsync(new HandleBiFunction<>(serializationService, fn));
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.handleAsync(new HandleBiFunction<>(serializationService, fn));
     }
 
     @Override
     public <U> CompletableFuture<U> handleAsync(BiFunction<? super V, Throwable, ? extends U> fn, Executor executor) {
-        return future.handleAsync(new HandleBiFunction<>(serializationService, fn), executor);
+        throw new UnsupportedOperationException("checker-framework");
+        // return future.handleAsync(new HandleBiFunction<>(serializationService, fn), executor);
     }
 
     @Override
@@ -585,6 +620,7 @@ public class DelegatingCompletableFuture<V> extends InternalCompletableFuture<V>
             this.delegate = delegate;
         }
 
+        @SuppressWarnings("argument.type.incompatible")
         @Override
         public R apply(T t, U u) {
             T deserialized = null;
@@ -627,6 +663,7 @@ public class DelegatingCompletableFuture<V> extends InternalCompletableFuture<V>
             this.delegate = delegate;
         }
 
+        @SuppressWarnings("argument.type.incompatible")
         @Override
         public void accept(E v, T t) {
             E deserialized = null;
@@ -650,6 +687,7 @@ public class DelegatingCompletableFuture<V> extends InternalCompletableFuture<V>
             this.delegate = delegate;
         }
 
+        @SuppressWarnings("return.type.incompatible")
         @Override
         public R apply(T t, U u) {
             if (u != null) {
