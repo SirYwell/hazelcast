@@ -46,6 +46,7 @@ public class JetGetJobIdsMessageTask extends AbstractAsyncMessageTask<JetGetJobI
         super(clientMessage, node, connection);
     }
 
+    @SuppressWarnings("lambda.param.type.incompatible")
     @Override
     protected CompletableFuture<Object> processInternal() {
 

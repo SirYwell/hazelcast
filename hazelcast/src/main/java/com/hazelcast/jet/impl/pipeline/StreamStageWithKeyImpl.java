@@ -65,7 +65,7 @@ public class StreamStageWithKeyImpl<T, K> extends StageWithGroupingBase<T, K> im
         return attachMapStateful(0, createFn, mapFn, null);
     }
 
-    @SuppressWarnings("lambda.param.type.incompatible")
+    @SuppressWarnings({"lambda.param.type.incompatible", "argument.type.incompatible"})
     @Nonnull @Override
     public <S> StreamStage<T> filterStateful(
             long ttl,

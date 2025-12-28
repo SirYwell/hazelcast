@@ -90,6 +90,7 @@ public class JetInstanceImpl extends AbstractJetInstance<Address> {
         return getJobIdsResultSafe(masterFuture);
     }
 
+    @SuppressWarnings("lambda.param.type.incompatible")
     @Override
     protected Map<Address, GetJobIdsResult> getJobsById(@Nullable Long jobId) {
         long jobIdParameter = requireNonNullElse(jobId, ALL_JOBS);

@@ -61,7 +61,7 @@ public class BatchStageWithKeyImpl<T, K> extends StageWithGroupingBase<T, K> imp
         return attachMapStateful(0, createFn, mapFn, null);
     }
 
-    @SuppressWarnings("lambda.param.type.incompatible")
+    @SuppressWarnings({"lambda.param.type.incompatible", "argument.type.incompatible"})
     @Nonnull @Override
     public <S> BatchStage<T> filterStateful(
             @Nonnull SupplierEx<? extends S> createFn,

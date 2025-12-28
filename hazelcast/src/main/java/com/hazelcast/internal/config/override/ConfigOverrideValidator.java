@@ -42,6 +42,7 @@ final class ConfigOverrideValidator {
         }
     }
 
+    @SuppressWarnings("type.argument.inference.crashed")
     private static Set<String> findDuplicateEntries(Set<ConfigProvider> providers) {
         return providers.stream()
           .flatMap(p -> p.properties().keySet().stream())

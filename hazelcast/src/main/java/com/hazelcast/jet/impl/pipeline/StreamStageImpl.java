@@ -110,7 +110,7 @@ public class StreamStageImpl<T> extends ComputeStageImplBase<T> implements Strea
         return attachGlobalMapStateful(createFn, mapFn);
     }
 
-    @SuppressWarnings("lambda.param.type.incompatible")
+    @SuppressWarnings({"lambda.param.type.incompatible", "argument.type.incompatible"})
     @Nonnull @Override
     public <S> StreamStage<T> filterStateful(
             @Nonnull SupplierEx<? extends S> createFn,
